@@ -1,0 +1,19 @@
+<form>
+  <label for="description">Description</label>&nbsp;
+  <input type="text" name="description" id="description" [(ngModel)]="newTaskDescription">
+  <br>
+  <label for="completed">Completed</label>&nbsp;
+  <input type="checkbox" name="completed" id="completed" [(ngModel)]="newTaskCompleted">
+  <br>
+  <button type="button" style="margin-top: 3px" (click)="onEditSave()" *ngIf="isEdit">Save task</button>&nbsp;
+  <button type="button" (click)="onCancelEdit()" *ngIf="isEdit">Cancel</button>
+  <button type="button" style="margin-top: 3px" (click)="onCreateTask()" *ngIf="!isEdit">Add task</button>
+</form>
+<div style="color: red">{{errorMessage}}</div>
+<div *ngFor="let task of tasks">
+  <h3>{{task.description}}</h3>
+  <p>{{task.createDate|date : 'yyyy-MM-dd HH:mm'}}</p>
+  <p>Status: <input type="checkbox" disabled [checked]="task.completed"></p>
+  <button type="button" (click)="onDelete(task)">Delete</button>&nbsp;
+  <button type="button" (click)="onEdit(task)">Edit</button>
+</div>
