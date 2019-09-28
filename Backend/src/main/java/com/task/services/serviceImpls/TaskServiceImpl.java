@@ -24,7 +24,7 @@ public class TaskServiceImpl implements TaskService {
     @Override
     public Task getTask(long id) {
         if (taskRepository.findById(id) == null) throw new TaskException("Task not found");
-        Task task=taskRepository.getOne(id);
+        Task task = taskRepository.getOne(id);
         return task;
     }
 
@@ -32,7 +32,10 @@ public class TaskServiceImpl implements TaskService {
     public Task updateTask(long id, Task task) {
         Task existingTask = taskRepository.findById(id);
         if (existingTask == null) throw new TaskException("Task not found");
-        if(taskRepository.findByDescription(task.getDescription())!=null)throw new TaskException("Task already exists");
+        if (taskRepository.findByDescription(task.getDescription()) != null &&
+                !existingTask.getDescription().equals(task.getDescription()))
+            throw new TaskException("Task already exists");
+        if(task.getDescription()==null || task.getDescription().trim().equals(""))throw new TaskException("Field is empty");
         existingTask.setCompleted(task.isCompleted());
         existingTask.setDescription(task.getDescription());
         taskRepository.save(existingTask);

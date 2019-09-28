@@ -13,12 +13,13 @@ export class TaskComponent implements OnInit, OnDestroy {
   tasks: Task[] = [];
   selectedTask: Task;
   errorMessage: string;
-  private fetchTaskSubscription: Subscription;
-  private createTaskSubscription: Subscription;
-  private deleteTaskSubscription: Subscription;
   isEdit = false;
   newTaskDescription: string;
   newTaskCompleted: boolean;
+
+  private fetchTaskSubscription: Subscription;
+  private createTaskSubscription: Subscription;
+  private deleteTaskSubscription: Subscription;
   private editTaskSubscription: Subscription;
 
   constructor(private taskService: TaskService) {
@@ -30,7 +31,7 @@ export class TaskComponent implements OnInit, OnDestroy {
         this.tasks = tasks;
       },
       error => {
-        this.errorMessage = error.message;
+        this.errorMessage = error.error.message;
       });
   }
 
@@ -57,6 +58,10 @@ export class TaskComponent implements OnInit, OnDestroy {
     this.deleteTaskSubscription = this.taskService.deleteTask(targetTask.id).subscribe(
       () => {
         this.tasks.splice(taskIndex, 1);
+      }, (error) => {
+        this.errorMessage = error.error.message;
+      }, () => {
+        this.cleanForm();
       }
     );
   }
@@ -103,5 +108,4 @@ export class TaskComponent implements OnInit, OnDestroy {
     this.deleteTaskSubscription.unsubscribe();
     this.editTaskSubscription.unsubscribe();
   }
-
 }

@@ -1,27 +1,16 @@
 # TaskListUI
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.6.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+ 
+Этот проект был сгенирирован с помощью [Angular CLI](https://github.com/angular/angular-cli) версии 8.3.6.
+ 
+## Сервер разработки
+Чтобы запустить проект должен быть установлен [NodeJS](https://nodejs.org/en/download/)
+После установки NodeJS перейдите в директорию с проектом и введите команду: `npm i` чтобы установить зависимости и запустить проект у себя на машине.
+Чтобы запустить проект введите команду `ng serve` для старта дев серверва. После успешного запуска в браузере перейдите по адресу: [`http://localhost:4200/`](http://localhost:4200/)
+ 
+## Сборка
+Введите команду `ng build` чтобы собрать проект. Собранный проект будет расположен в папке `/dist`. Используйте флажок `--prod` для продакшн сборки (`ng build --prod`).
+ 
+## Дальнейшая помощь
+ 
+Чтобы получить больше информации про команды Angular CLI введите команду `ng help` или же прочитайте о них больше тут
+ [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

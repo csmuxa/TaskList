@@ -24,15 +24,4 @@ export class Task {
     return this._completed;
   }
 
-  /*
-    private long id;
-
-
-    private String description;
-
-    private Date createDate  new Date();
-
-    private boolean completed=false;
-
-  */
 }
